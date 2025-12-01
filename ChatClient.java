@@ -11,7 +11,6 @@ public class ChatClient extends JFrame {
     private JButton sendButton;
     private JButton imageButton;
     private JButton loadLogButton;
-
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
@@ -188,7 +187,7 @@ public class ChatClient extends JFrame {
 
     private byte[] readFileToByteArray(File file) throws IOException {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
-             FileInputStream fis = new FileInputStream(file)) {
+            FileInputStream fis = new FileInputStream(file)) {
 
             byte[] buffer = new byte[4096];
             int read;
@@ -209,8 +208,8 @@ public class ChatClient extends JFrame {
     // 파일 쓰기 (로그 저장)
     private void appendLog(String line) {
         try (FileWriter fw = new FileWriter(logFile, true);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter pw = new PrintWriter(bw)) {
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw)) {
             pw.println(line);
         } catch (IOException e) {
             // 로그 저장 실패는 크게 중요하진 않으니 조용히 무시해도 됨
